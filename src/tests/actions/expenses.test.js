@@ -6,21 +6,6 @@ import database from '../../firebase/firebase';
 
 const createMockStore = configureMockStore([thunk]);
 
-// // TEST addExpense() - default values
-// test('should setup add expense action object with default values', () => {
-// 	const action = addExpense();
-// 	expect(action).toEqual({
-// 		type: 'ADD_EXPENSE',
-// 		expense: {
-// 			id: expect.any(String),
-// 			description: '',
-// 			notes: '',
-// 			amount: 0,
-// 			createdAt: 0
-// 		}
-// 	})
-// });
-
 // TEST addExpense() - provided values
 test('should setup add expense action object with provided values', () => {
 	const action = addExpense(expenses[2]);
