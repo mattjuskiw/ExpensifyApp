@@ -6,23 +6,30 @@ import ExpenseListItem from './ExpenseListItem';
 import visibleExpenses from '../selectors/expenses';
 
 export const ExpenseList = (props) => (
-	<div>
-		<h1>Expense List</h1>
-		{
-			props.expenses.length === 0 ? (
-				<p>No expenses</p>
-			) : (
-				<ol>
-					{props.expenses.map((expense, index) => {
-						return (
-							<li key={index}>
-								<ExpenseListItem {...expense} />
-							</li>
-						)
-					})}
-				</ol>
-			)
-		}
+	<div className="container">
+		<div className="list-header">
+			<div className="show-mobile">Expenses</div>
+			<div className="show-desktop">Expense</div>
+			<div className="show-desktop">Amount</div>
+		</div>
+
+		<div className="list-body">
+			{
+				props.expenses.length === 0 ? (
+					<div className="list-item list-item--message">
+						<span>No expenses</span>
+					</div>
+				) : (
+					<span>
+						{props.expenses.map((expense, index) => {
+							return (
+								<ExpenseListItem key={index} {...expense} />
+							)
+						})}
+					</span>
+				)
+			}
+		</div>
 	</div>
 );
 
