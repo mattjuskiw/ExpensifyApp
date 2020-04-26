@@ -35,7 +35,6 @@ ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
 	if(user) {
-		console.log('logged in');
 		store.dispatch(startSetExpenses()).then(() => {
 			renderApp();
 			if(history.location.pathname === '/') {
@@ -43,7 +42,6 @@ firebase.auth().onAuthStateChanged((user) => {
 			}
 		});
 	} else {
-		console.log('logged out');
 		renderApp();
 		history.push('/');
 	}
